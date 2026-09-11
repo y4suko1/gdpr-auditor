@@ -1,0 +1,3 @@
+# Recital 44
+
+Processing should be lawful where it is necessary in the context of a contract or the intention to enter into a contract.

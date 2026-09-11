@@ -1,0 +1,10 @@
+# Internal workspace handoff notes — never belong in the public repo
+HANDOFF-*.md
+
+# Full 99-article/173-recital reference set — kept locally for building the
+# routed subset in reference/, not for the public repo or competition submission
+reference-full/
+
+# Delivery record (brief + spec) — internal build history, not part of the
+# product itself; kept in operations/product-delivery/ as the working copy
+_delivery/
