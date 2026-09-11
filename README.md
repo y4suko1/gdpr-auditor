@@ -59,7 +59,7 @@ You don't have to take that on faith either. Every finding names a specific arti
 
 ## How to use it
 
-A Claude Project can't have a folder dropped into it, and Google Drive and OneDrive aren't supported as Project knowledge sources at all. A GitHub repository is. This tool is set up so the repo you connect, `gdpr-auditor`, is already the right size: `reference/` holds only the routed subset (roughly 30 articles and 51 recitals), not the full 99-article/173-recital Regulation, so there's nothing to trim before connecting it. The full untrimmed law and this session's internal build notes are excluded from the repo entirely via `.gitignore`, so nothing extra ever reaches the Project by connecting the repo.
+A Claude Project can't have a folder dropped into it, and Google Drive and OneDrive aren't supported as Project knowledge sources at all. A GitHub repository is. This tool is set up so the repo you connect, `gdpr-auditor`, is already the right size: `reference/` holds only the routed subset (roughly 30 articles and 51 recitals), not the full 99-article/173-recital Regulation, so there's nothing to trim before connecting it.
 
 **Setup (one-time):**
 
