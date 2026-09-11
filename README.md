@@ -5,8 +5,8 @@ This checks a privacy policy against the real EU privacy law, Regulation (EU) 20
 ## Quick start
 
 **Set up once:**
-1. Put this whole `GDPR Auditor` folder in Google Drive or OneDrive.
-2. In your Claude Project's settings, connect that folder.
+1. In your Claude Project's settings, connect the `gdpr-auditor` GitHub repository (Google Drive and OneDrive aren't available as Project knowledge sources; GitHub is).
+2. Paste the project instructions below into the Project's **Set project instructions** field.
 
 **Run an audit (every time):**
 1. Open the Claude Project.
@@ -59,18 +59,17 @@ You don't have to take that on faith either. Every finding names a specific arti
 
 ## How to use it
 
-A Claude Project can't have a folder dropped into it. It can only have individual files uploaded, or a Google Drive/OneDrive folder connected to it. This tool is set up so the folder you actually connect, `GDPR Auditor` itself, is already the right size: `reference/` holds only the routed subset (roughly 30 articles and 51 recitals), not the full 99-article/173-recital Regulation, so there's nothing to trim before connecting it.
+A Claude Project can't have a folder dropped into it, and Google Drive and OneDrive aren't supported as Project knowledge sources at all. A GitHub repository is. This tool is set up so the repo you connect, `gdpr-auditor`, is already the right size: `reference/` holds only the routed subset (roughly 30 articles and 51 recitals), not the full 99-article/173-recital Regulation, so there's nothing to trim before connecting it. The full untrimmed law and this session's internal build notes are excluded from the repo entirely via `.gitignore`, so nothing extra ever reaches the Project by connecting the repo.
 
 **Setup (one-time):**
 
-1. Put the `GDPR Auditor` folder in Google Drive or OneDrive, wherever you keep files Claude can connect to.
-2. In your Claude Project, go to **Add content** (or **Knowledge**) and connect that folder.
-3. In the Project's **Set project instructions** field, paste:
+1. In your Claude Project, go to **Add content** (or **Knowledge**) and connect the `gdpr-auditor` GitHub repository.
+2. In the Project's **Set project instructions** field, paste:
 
    > Before responding to anything in this Project, read `identity.md` and `rules.md` in the connected knowledge and follow them exactly for every GDPR audit. Use `reference/index.md` to find the right article(s) for what the submitted privacy policy covers. Use `examples.md` to match the required finding format. Never rely on general knowledge of GDPR: always cite the actual text in `reference/`.
 
    This isn't strictly required (the connected files already act as instructions once loaded as knowledge), but the instructions field is read on every single chat in the Project, so it's a reliable backstop against a vague prompt skipping the full procedure.
-4. That's it. The Project now has the audit rules and the routed articles as permanent knowledge.
+3. That's it. The Project now has the audit rules and the routed articles as permanent knowledge.
 
 **Running an audit:**
 
