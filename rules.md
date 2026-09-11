@@ -44,7 +44,33 @@ Pass findings do not need a severity level. They are simply marked as compliant,
 
 ## 4. Report structure
 
-**Deliver the finished report as a PDF file, not as markdown text in the chat reply.** Markdown headers, bold, and bullet syntax are for you to draft with; the reader should never see raw `#` or `**` characters. Write the report content in markdown internally, then convert it to a properly formatted PDF (headings, bold, and lists rendered as actual formatting, not literal symbols) and give the reader that file. If the working environment genuinely cannot produce a PDF, say so explicitly and give the best-formatted alternative available, don't silently fall back to a markdown wall of text and call it done.
+**Deliver the finished report as a PDF file, not as markdown text in the chat reply.** Markdown headers, bold, and bullet syntax are for you to draft with; the reader should never see raw `#` or `**` characters. Write the report content as styled HTML using the design spec below, then render it to PDF, and give the reader that file. If the working environment genuinely cannot produce a PDF, say so explicitly and give the best-formatted alternative available, don't silently fall back to a markdown wall of text and call it done.
+
+### Visual design
+
+A plain black-on-white document with a bold label per line ("Citation:", "Severity:") is not an acceptable finished report. It reads as an unstyled draft, not a professional audit deliverable. Build the report as an HTML document (rendered to PDF) using this design system:
+
+**Colour palette** (a warm, grounded, non-corporate register, distinct from any client's own branding):
+- Page background: `#FEFDFB` (warm off-white, not stark white)
+- Body text: `#3A3530` (warm charcoal, not pure black)
+- Headings and structural elements: `#1F4A3A` (deep teal-green)
+- Muted secondary text (captions, meta-notes): `#5A5550`
+- Severity accents, used as a left-border stripe plus a small text badge on each finding, never as a full-block fill:
+  - Critical: `#93101F` (deep red) on a very light red tint background `#F9F1F2`
+  - Moderate: `#A8674C` (terracotta/amber) on `#F5EBE6`
+  - Minor: `#5A5550` (neutral grey) on `#F8F9FA`
+  - Pass: `#2D875C` (muted green) on `#E8F8F0`
+
+**Typography**: system sans-serif stack (`-apple-system, 'Segoe UI', system-ui, sans-serif`) throughout, no serif fonts. Clear size hierarchy: report title largest, section headings next, finding citations bold at body size, assessment/fix text at body size, meta-notes (page numbers, standard-checked date) smallest.
+
+**Layout**:
+- A cover section: report title, the entity/policy name being audited, the standard-checked line, and the date, visually separated from the findings that follow (e.g. its own padded block with the deep teal-green as an accent, not the full findings-list styling).
+- A visual summary block for the Findings count (Critical/Moderate/Minor/Pass), not just a sentence: a simple row of stat tiles or a compact table, each using its severity colour, so the overall posture is visible at a glance before reading any individual finding.
+- Each finding rendered as a distinct card: rounded corners, a left border in its severity colour, generous internal padding, and clear line breaks between Citation / Policy excerpt / Assessment / Severity / Suggested fix, not run together as one paragraph.
+- Section headings (Lawful Basis, Transparency, etc.) visually distinct from finding cards, e.g. as a heading with a thin rule beneath it in the deep teal-green.
+- Generous whitespace between findings and sections; avoid a dense, cramped page.
+
+This design system is fixed across all reports this tool produces so results are visually consistent between audits, not restyled ad hoc each time.
 
 Write the report in this order:
 
@@ -54,7 +80,7 @@ State, as the very first line of the report: the Regulation checked against (Reg
 Also state, in this section, that severity levels (Critical/Moderate/Minor) indicate risk level only, not a predicted fine. Actual GDPR fines depend on case-specific facts (turnover, intent, mitigation, prior infringements) this audit cannot assess from policy text alone. State this once here regardless of whether the report ends up containing any Critical findings.
 
 ### Summary
-One short paragraph giving the overall compliance posture in plain terms, followed by a count of how many Critical, Moderate, and Minor findings there are, and a count of Pass findings, so the reader sees the full picture and not just the problems.
+One short paragraph giving the overall compliance posture in plain terms, followed by the visual severity-count block described under "Visual design" above (Critical/Moderate/Minor/Pass counts as coloured stat tiles or a compact table, not just a sentence), so the reader sees the full picture and not just the problems.
 
 ### Findings
 Group findings by topic (e.g. "Lawful Basis," "Transparency & Information Duties," "Data Subject Rights," "International Transfers," "Security & Breach Notification," "Third-Party/Processor Obligations"; only include topic groups actually relevant to the policy). Where it aids clarity, topic groups may follow the six-principles framing from `reference/isaca-methodology.md` instead of, or alongside, the list above. Use whichever grouping makes the report easiest to follow for this specific policy. Within each group, list every finding, pass and fail, in the citation format from section 2. For fail findings, add a short, concrete suggested fix stating what the policy should say or add.
