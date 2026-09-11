@@ -71,6 +71,8 @@ A Claude Project can't have a folder dropped into it, and Google Drive and OneDr
    This isn't strictly required (the connected files already act as instructions once loaded as knowledge), but the instructions field is read on every single chat in the Project, so it's a reliable backstop against a vague prompt skipping the full procedure.
 3. That's it. The Project now has the audit rules and the routed articles as permanent knowledge.
 
+The GitHub connection doesn't update automatically when the repo changes. If this repo is ever updated after you've connected it, open the Project's Knowledge panel and use the **sync** button on the `gdpr-auditor` source to pull in the latest version.
+
 **Running an audit:**
 
 1. Give it a privacy policy to check, by pasting the text into the chat or uploading the policy file.
