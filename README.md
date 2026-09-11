@@ -65,7 +65,12 @@ A Claude Project can't have a folder dropped into it. It can only have individua
 
 1. Put the `GDPR Auditor` folder in Google Drive or OneDrive, wherever you keep files Claude can connect to.
 2. In your Claude Project, go to **Add content** (or **Knowledge**) and connect that folder.
-3. That's it. The Project now has the audit rules and the routed articles as permanent knowledge.
+3. In the Project's **Set project instructions** field, paste:
+
+   > Before responding to anything in this Project, read `identity.md` and `rules.md` in the connected knowledge and follow them exactly for every GDPR audit. Use `reference/index.md` to find the right article(s) for what the submitted privacy policy covers. Use `examples.md` to match the required finding format. Never rely on general knowledge of GDPR: always cite the actual text in `reference/`.
+
+   This isn't strictly required (the connected files already act as instructions once loaded as knowledge), but the instructions field is read on every single chat in the Project, so it's a reliable backstop against a vague prompt skipping the full procedure.
+4. That's it. The Project now has the audit rules and the routed articles as permanent knowledge.
 
 **Running an audit:**
 
