@@ -33,3 +33,13 @@ If you have a finished PDF report and want to spot-check a few citations from it
 This is a way to independently confirm a citation is real, separate from the AI's own built-in self-check (described in the main `README.md`). It's not part of running a normal audit — you never need this to get a report. It exists for anyone who wants to verify a finding themselves rather than take it on trust.
 
 Two ready-made examples are in `test-cases/`: `correct-citation.md` (should print PASS) and `broken-citation.md` (deliberately wrong, should print FAIL and show you what a caught mistake looks like).
+
+## If you're comfortable with a terminal
+
+`check.bat` is just a wrapper. The underlying script is `check.py`, and it runs the same way directly:
+
+```
+python check.py test-cases/correct-citation.md
+```
+
+Same output, same exit code (0 if every citation passes, 1 if any fail) — use whichever interface you prefer.
