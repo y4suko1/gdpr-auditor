@@ -9,6 +9,11 @@ running actual code rather than trusting the AI's own self-report, that
 every citation in a findings file resolves to a real line in reference/ and
 that the quoted text genuinely appears there.
 
+Every audit produces findings.txt alongside the PDF report, already in the
+format below -- that's the normal input to this script. It's never shown
+in the report itself (rules.md section 2); it exists purely so this script
+can check it.
+
 Usage:
     python check.py <findings-file.md>
 

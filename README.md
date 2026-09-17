@@ -1,6 +1,6 @@
 # GDPR Privacy Policy Auditor
 
-Checks a privacy policy against the real EU law, Regulation (EU) 2016/679 (GDPR), and tells you what's good and what's missing. Every point in the report, pass or fail, cites a specific article and the exact line it comes from. Nothing in it is a vibe check.
+Checks a privacy policy against the real EU law, Regulation (EU) 2016/679 (GDPR), and tells you what's good and what's missing. Every point in the report, pass or fail, cites a specific article. Nothing in it is a vibe check.
 
 ## Quick start
 
@@ -14,7 +14,7 @@ Checks a privacy policy against the real EU law, Regulation (EU) 2016/679 (GDPR)
 1. Open the Claude Project.
 2. Paste in the privacy policy text, or upload the policy file.
 3. Type: "Run the GDPR audit on this."
-4. Download the PDF report it generates.
+4. Download the PDF report it generates, plus a small `findings.txt` file alongside it (see "How to verify the report" below).
 
 Setup mechanics, what's in this folder, and full details are in [SETUP.md](SETUP.md).
 
@@ -32,7 +32,7 @@ Routes to the roughly 30 GDPR articles and 51 recitals that actually govern what
 
 ## What you get back
 
-A PDF report. It states which version of GDPR it checked and when the reference text was transcribed. Every finding, pass or fail, names the specific article and the file:line it's drawn from, gets a severity (critical, moderate, minor) if it's a fail, and a concrete suggested fix. Pass findings are reported as rigorously as fails, so the result reads as an audit, not a complaint list.
+A PDF report. It states which version of GDPR it checked and when the reference text was transcribed. Every finding, pass or fail, names the specific article, gets a severity (critical, moderate, minor) if it's a fail, and a concrete suggested fix. Pass findings are reported as rigorously as fails, so the result reads as an audit, not a complaint list.
 
 It doesn't estimate fines — severity tells you how serious a gap is, not what it would cost. See [SETUP.md](SETUP.md) for why.
 
@@ -40,7 +40,7 @@ It doesn't estimate fines — severity tells you how serious a gap is, not what 
 
 Before you ever see it, the auditor runs a self-check on its own findings: every citation is confirmed to exist at the exact article, paragraph, and line cited, and re-checked against the actual wording to confirm it genuinely supports the finding (`rules.md` section 6).
 
-You don't have to take that on faith. Every finding names a specific article and file:line — open `reference/articles/` (or `reference/recitals/`) and read the exact wording yourself. For an independent check, see `verify/`: double-click `verify/check.bat` (or drag a findings file onto it), no coding needed, and it tells you plainly whether a citation is real and shows exactly what's wrong if it isn't. See `verify/README.md` for the two-minute how-to.
+You don't have to take that on faith. Every audit produces `findings.txt` alongside the PDF — drag it straight onto `verify/check.bat` (double-click, no coding needed) and it tells you plainly whether every citation is real, showing exactly what's wrong if one isn't. Or open `reference/articles/` (or `reference/recitals/`) yourself and read the exact wording behind any finding. See `verify/README.md` for the two-minute how-to.
 
 ## What this is not
 

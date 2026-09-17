@@ -17,16 +17,16 @@ Python installed on your computer (a one-time setup, free, from [python.org](htt
 
 ## What file to check
 
-A findings file is a plain text file listing the citations you want checked, in this form:
+Every audit produces two files: the PDF report you read, and `findings.txt` sitting alongside it — a plain-text list of every citation in the report, already in the format this checker needs. Drag `findings.txt` straight onto `check.bat`. No typing anything out yourself.
+
+`findings.txt` looks like this, one block per finding:
 
 ```
 CITATION: articles/art-13-info-collected-from-subject.md:19
 QUOTE: the period for which the personal data will be stored
 ```
 
-You can list more than one citation in the same file — the checker goes through each in turn.
-
-If you have a finished PDF report and want to spot-check a few citations from it, copy the article/paragraph and file:line reference (shown in the report) plus the exact quoted wording into a plain text file in the format above, then run it through `check.bat`.
+If you only want to check one or two specific findings rather than the whole report, you can also make your own small file in this format — copy the article citation from the report, open the matching file in `reference/articles/` or `reference/recitals/` to find the exact line, and quote its wording.
 
 ## What this is, and isn't
 

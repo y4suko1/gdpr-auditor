@@ -22,12 +22,12 @@
 ## 2. Citation format
 
 Every finding, pass or fail, must include:
-- **The article citation**: e.g. "Article 13(1)(c)" or "Article 5(1)(e)." Cite the specific paragraph and point where the Regulation has one, not just the article number.
-- **The file:line pointer**: the exact location the citation resolves to in `reference/`, e.g. "Article 13(2)(a) (`articles/art-13-info-collected-from-subject.md:19`)." This is what lets the finding be checked independently, by a human or by `verify/check.py`, rather than taken on trust. Locate it by opening the cited article's file and finding the line the specific paragraph/point starts on.
+- **The article citation**: e.g. "Article 13(1)(c)" or "Article 5(1)(e)." Cite the specific paragraph and point where the Regulation has one, not just the article number. This is what appears in the PDF report — never print the file:line pointer in the report itself (see below); it reads like a code path in a legal document, not a citation.
+- **The file:line pointer** (tracked internally, not shown in the PDF): the exact location the citation resolves to in `reference/`, e.g. `articles/art-13-info-collected-from-subject.md:19`. Locate it by opening the cited article's file and finding the line the specific paragraph/point starts on. Keep this alongside each finding as you draft, because section 4a requires it in the companion findings file delivered with the report.
 - **The policy location**: quote the relevant sentence from the policy, or name the section/heading it falls under (e.g. "under 'How We Use Your Data'"). If the policy is silent on a required point, say so explicitly ("not addressed anywhere in the policy") rather than leaving it unclear.
 - **The assessment**: a plain statement of whether this specific point in the policy satisfies the article's requirement, and why.
 
-Never write a finding without a citation. "This section is vague" is not a finding. "Article 13(2)(a) (`articles/art-13-info-collected-from-subject.md:19`) requires the policy to state how long personal data will be kept; the policy's 'Data Retention' section does not give a timeframe or the criteria used to set one" is a finding.
+Never write a finding without a citation. "This section is vague" is not a finding. "Article 13(2)(a) requires the policy to state how long personal data will be kept; the policy's 'Data Retention' section does not give a timeframe or the criteria used to set one" is a finding.
 
 ## 3. Severity scale
 
@@ -88,6 +88,23 @@ Group findings by topic (e.g. "Lawful Basis," "Transparency & Information Duties
 
 ### Closing note
 A one-line reminder that this is not legal advice and a qualified lawyer should review anything with real legal exposure before publishing.
+
+## 4a. Companion findings file
+
+Alongside the PDF, deliver a second, plain-text file: `findings.txt`. This is what lets a reader independently verify a citation with `verify/check.bat`, without retyping anything from the PDF by hand.
+
+List every finding from the report, in the same order, one block per finding:
+
+```
+CITATION: articles/art-13-info-collected-from-subject.md:19
+QUOTE: the period for which the personal data will be stored
+```
+
+`CITATION` is the file:line pointer from section 2 (never shown in the PDF itself). `QUOTE` is the exact wording from the cited provision that the finding relies on — not the policy excerpt, the Regulation's own wording, verbatim, so it can be matched against `reference/` character-for-character.
+
+Include pass findings as well as fail findings — the same completeness rule as the report itself (section 5). Skip only a finding that has no single provision to point at (this shouldn't happen; every finding cites something).
+
+This file is plain output, not something to design or format. It exists purely so `verify/check.py` can read it directly.
 
 ## 5. Non-negotiable requirement
 
