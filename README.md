@@ -40,7 +40,7 @@ It doesn't estimate fines — severity tells you how serious a gap is, not what 
 
 Before you ever see it, the auditor runs a self-check on its own findings: every citation is confirmed to exist at the exact article, paragraph, and line cited, and re-checked against the actual wording to confirm it genuinely supports the finding (`rules.md` section 6).
 
-You don't have to take that on faith. Every finding names a specific article and file:line — open `reference/articles/` (or `reference/recitals/`) and read the exact wording yourself. For independent, code-based verification rather than trusting the model's self-report, see `verify/` — a small script that mechanically checks a findings file's citations against `reference/` and prints exactly what's wrong if one fails.
+You don't have to take that on faith. Every finding names a specific article and file:line — open `reference/articles/` (or `reference/recitals/`) and read the exact wording yourself. For an independent check, see `verify/`: double-click `verify/check.bat` (or drag a findings file onto it), no coding needed, and it tells you plainly whether a citation is real and shows exactly what's wrong if it isn't. See `verify/README.md` for the two-minute how-to.
 
 ## What this is not
 
