@@ -23,10 +23,11 @@
 
 Every finding, pass or fail, must include:
 - **The article citation**: e.g. "Article 13(1)(c)" or "Article 5(1)(e)." Cite the specific paragraph and point where the Regulation has one, not just the article number.
+- **The file:line pointer**: the exact location the citation resolves to in `reference/`, e.g. "Article 13(2)(a) (`articles/art-13-info-collected-from-subject.md:19`)." This is what lets the finding be checked independently, by a human or by `verify/check.py`, rather than taken on trust. Locate it by opening the cited article's file and finding the line the specific paragraph/point starts on.
 - **The policy location**: quote the relevant sentence from the policy, or name the section/heading it falls under (e.g. "under 'How We Use Your Data'"). If the policy is silent on a required point, say so explicitly ("not addressed anywhere in the policy") rather than leaving it unclear.
 - **The assessment**: a plain statement of whether this specific point in the policy satisfies the article's requirement, and why.
 
-Never write a finding without a citation. "This section is vague" is not a finding. "Article 13(2)(a) requires the policy to state how long personal data will be kept; the policy's 'Data Retention' section does not give a timeframe or the criteria used to set one" is a finding.
+Never write a finding without a citation. "This section is vague" is not a finding. "Article 13(2)(a) (`articles/art-13-info-collected-from-subject.md:19`) requires the policy to state how long personal data will be kept; the policy's 'Data Retention' section does not give a timeframe or the criteria used to set one" is a finding.
 
 ## 3. Severity scale
 

@@ -11,7 +11,7 @@ Note what these examples deliberately don't do: no finding names a euro fine amo
 **Policy excerpt** (under "Data Retention"):
 > "We keep your information for as long as necessary."
 
-**Citation**: Article 13(2)(a)
+**Citation**: Article 13(2)(a) (`articles/art-13-info-collected-from-subject.md:19`)
 
 **Assessment**: Article 13(2)(a) requires the controller to tell the data subject "the period for which the personal data will be stored, or if that is not possible, the criteria used to determine that period." The policy states data is kept "for as long as necessary" but gives no actual timeframe and no criteria for how that period is decided (e.g. "until account closure plus 3 years for tax records"). This does not meet the requirement: a data subject reading this cannot know how long their data will exist.
 
@@ -26,9 +26,9 @@ Note what these examples deliberately don't do: no finding names a euro fine amo
 **Policy excerpt** (under "Your Rights"):
 > "You have the right to access the personal data we hold about you, correct it if it's inaccurate, ask us to delete it, and object to certain uses. To exercise any of these rights, email privacy@example.com and we'll respond within 30 days."
 
-**Citation**: Articles 15 (right of access), 16 (right to rectification), 17 (right to erasure), 21 (right to object)
+**Citation**: Article 15(1) (`articles/art-15-right-of-access.md:3`), Article 16 (`articles/art-16-rectification.md:3`), Article 17(1) (`articles/art-17-erasure.md:3`), Article 21(1) (`articles/art-21-right-to-object.md:3`)
 
-**Assessment**: The policy names the core data subject rights required under Articles 15, 16, 17, and 21, and gives a concrete, working method to exercise them (an email address) with a response timeframe under GDPR's one-month default (Article 12(3)). This section meets the requirement.
+**Assessment**: The policy names the core data subject rights required under Articles 15, 16, 17, and 21, and gives a concrete, working method to exercise them (an email address) with a response timeframe under GDPR's one-month default (Article 12(3), `articles/art-12-transparency-modalities.md:7`). This section meets the requirement.
 
 ---
 
@@ -37,7 +37,7 @@ Note what these examples deliberately don't do: no finding names a euro fine amo
 **Policy excerpt** (under "Who We Share Data With"):
 > "We may share your data with trusted third-party partners to improve our services."
 
-**Citation**: Article 13(1)(e)
+**Citation**: Article 13(1)(e) (`articles/art-13-info-collected-from-subject.md:13`)
 
 **Assessment**: Article 13(1)(e) requires disclosure of "the recipients or categories of recipients of the personal data, if any." "Trusted third-party partners" does not name a category a reader can understand (e.g. "payment processors," "email delivery providers," "analytics providers"). The obligation is gestured at but not actually satisfied.
 
@@ -52,7 +52,7 @@ Note what these examples deliberately don't do: no finding names a euro fine amo
 **Policy excerpt** (opening paragraph):
 > "This Privacy Policy describes the personal data processing practices of [Company], including the categories of personal data we process, the purposes of such processing, your rights, and other important information regarding our handling of your personal data."
 
-**Citation**: Article 12(1)
+**Citation**: Article 12(1) (`articles/art-12-transparency-modalities.md:3`)
 
 **Assessment**: Article 12(1) requires information to be provided "in a concise, transparent, intelligible and easily accessible form, using clear and plain language." This sentence is legally accurate but dense and formal, and likely to be skimmed past rather than read and understood by an average person.
 
@@ -67,7 +67,7 @@ Note what these examples deliberately don't do: no finding names a euro fine amo
 **Policy excerpt** (under "Your Rights," as a sub-clause of the general objection right):
 > "You have the right to object to processing of your personal data where we rely on legitimate interests. You also have the right to object where we process your data for direct marketing purposes."
 
-**Citation**: Article 21(4)
+**Citation**: Article 21(4) (`articles/art-21-right-to-object.md:9`)
 
 **Assessment**: Article 21(4) requires that the right to object to direct marketing be "explicitly brought to the attention of the data subject" and "presented clearly and separately from any other information," at the latest at the time of first contact. Here, the marketing-objection right is disclosed and the substance is present, but it's folded into the same sentence as the general legitimate-interests objection right rather than given its own distinct, standalone statement. A reader skimming for "how do I stop marketing emails" is not clearly pointed to the answer.
 

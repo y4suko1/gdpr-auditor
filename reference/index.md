@@ -44,3 +44,7 @@ This is the routing file for the **trimmed set** used inside the Claude Project:
 **Not included here**: Articles 10, 11, 23, 26–27, 29–31, 36, 38–43, 50–99 (supervisory authority structure, the European Data Protection Board, penalties, member-state derogations, and other provisions that don't map to what a privacy policy document itself says). Left out of this trimmed set to keep the Claude Project's knowledge within a usable size.
 
 **Recitals**: `recitals/` holds the full verbatim text of the ~50 recitals that interpret these routed articles (see `recitals/index.md`), not all 173. If `rules.md` step 4 calls for a recital outside that set, note the gap rather than guessing at its wording.
+
+**Integrity check**: `checksums.sha256` holds a SHA-256 hash of every article and recital file in this folder, generated 2026-09-17. Anyone who clones this repo can confirm the text hasn't drifted from the transcribed version by running `sha256sum -c checksums.sha256` from inside `reference/`.
+
+Citations issued from this point forward include a `file:line` pointer (see `rules.md` section 2), which makes these files line-sensitive: editing one, even to fix a typo, can silently invalidate a citation already issued in a delivered report, and will also break the checksum above. If a correction to the reference text is ever genuinely needed, log it as a dated note in this file rather than editing silently, and regenerate `checksums.sha256` at the same time.
