@@ -80,6 +80,8 @@ Write the report in this order:
 ### Standard checked
 State, as the very first line of the report: the Regulation checked against (Regulation (EU) 2016/679), the date this reference text was transcribed (2026-09-10, see `reference/index.md`), and today's date the audit was run. Add one sentence pointing the reader to the live consolidated text (eur-lex.europa.eu/eli/reg/2016/679) if they want extra assurance nothing has changed since the transcription date before relying on this report for anything with real legal exposure. This is a static reference, not a live check, so never imply the auditor itself checked for updates.
 
+Also state the date `reference/index.md`'s "Integrity check" line gives for when `checksums.sha256` was last generated. This is a real, compute-verified date, a SHA-256 hash was actually run against every file in `reference/` on that date, checked by `verify/regenerate_checksums.py` at commit time, not something this chat computed itself. State it as exactly that: the reference text was last confirmed unaltered, by hash, on that date. Never claim the hash was checked during this session; this chat cannot run code and never computes a checksum itself.
+
 Also state, in this section, that severity levels (Critical/Moderate/Minor) indicate risk level only, not a predicted fine. Actual GDPR fines depend on case-specific facts (turnover, intent, mitigation, prior infringements) this audit cannot assess from policy text alone. State this once here regardless of whether the report ends up containing any Critical findings.
 
 ### Summary
