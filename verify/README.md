@@ -8,6 +8,8 @@ You don't need to know how to code to use it.
 
 Python installed on your computer (a one-time setup, free, from [python.org](https://python.org), search "how to install Python on Windows" if you've not done it before).
 
+You also need this `verify/` folder and the `reference/` folder next to it, both from the [gdpr-auditor repository](https://github.com/y4suko1/gdpr-auditor). `check.bat` and `check.py` won't work with `verify/` on its own: they check citations against the actual GDPR text in `reference/`, sitting one level up. The simplest way to get both together is to download the whole repository as a ZIP (green **Code** button on GitHub, then **Download ZIP**) and unzip it, rather than downloading `verify/` by itself.
+
 ## How to run it
 
 1. Open `check.bat` in this folder: either **double-click it**, or **drag a findings file and drop it onto `check.bat`**.

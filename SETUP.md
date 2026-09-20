@@ -31,7 +31,7 @@ The GitHub connection doesn't auto-update. If this repo changes after you've con
   - `recitals/`: verbatim text of the ~50 recitals that interpret the routed articles
   - `isaca-methodology.md`: the ISACA layer described above
   - `checksums.sha256`: SHA-256 of every article/recital file, so anyone can confirm the text hasn't drifted since transcription (`sha256sum -c checksums.sha256` from inside `reference/`)
-- `verify/`: a standalone script for independently checking a report's citations against `reference/`, entirely separate from normal use (see main README's "How to verify the report")
+- `verify/`: a standalone script for independently checking a report's citations against `reference/`, entirely separate from normal use (see main README's "How to verify the report"). To run it, download both `verify/` and `reference/` together, kept in the same relative position as in this repo (`check.py` looks for `reference/` one level up from itself), for example by downloading the whole repository as a ZIP from GitHub rather than the `verify/` folder alone.
 - `LICENSE`: MIT, with a note that the GDPR text itself is public EU legislation
 
 ## On fine estimates

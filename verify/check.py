@@ -44,6 +44,7 @@ exits non-zero. It never modifies reference/ or the findings file.
 import hashlib
 import re
 import sys
+from datetime import datetime, timezone
 from pathlib import Path
 
 REFERENCE_ROOT = Path(__file__).resolve().parent.parent / "reference"
@@ -129,14 +130,19 @@ def main():
         print(f"Findings file not found: {findings_path}")
         sys.exit(2)
 
+    run_time = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+
     print("Checking reference/ against checksums.sha256...")
     checksums_ok, checksum_messages = verify_checksums()
     for message in checksum_messages:
         print(("PASS  " if checksums_ok else "FAIL  ") + message)
     print()
     if not checksums_ok:
-        print("reference/ does not match its recorded checksums. Citations cannot be trusted until this is resolved.")
+        print(f"reference/ does not match its recorded checksums, checked {run_time}.")
+        print("Citations cannot be trusted until this is resolved.")
         sys.exit(1)
+    print(f"reference/ checksum verified {run_time}.")
+    print()
 
     text = findings_path.read_text(encoding="utf-8")
     blocks = list(CITATION_BLOCK.finditer(text))
