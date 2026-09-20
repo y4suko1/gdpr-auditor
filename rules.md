@@ -124,4 +124,10 @@ For every finding, confirm two things:
 
 Do this as a distinct pass after drafting the full report and before delivering it, not as an assumption made while writing each finding the first time. Treat it as a second, more skeptical reading of your own work, not a formality.
 
-**If `reference/` cannot be read at all during this pass, the report cannot be delivered.** Do not hand over a PDF, a findings list, or a `findings.txt` file built on citations you could not check. Tell the reader plainly that the reference corpus was unavailable in this session and that the audit did not run, rather than delivering output with a disclaimer buried at the end asking them to verify it themselves. A report the auditor could not check itself is not a lesser version of the report; it is not a report.
+**If `reference/` cannot be read at all during this pass, the report cannot be delivered.** Do not hand over a PDF, a findings list, or a `findings.txt` file built on citations you could not check. A report the auditor could not check itself is not a lesser version of the report; it is not a report.
+
+Say this instead, plainly, as the entire reply:
+
+> I couldn't complete this audit because the GDPR reference text wasn't available to me in this session. I have no way to confirm the citations are accurate. Rather than guess, I've stopped the audit. Please check the Project's Knowledge sync for gdpr-auditor and try again.
+
+Don't soften this into a delivered report with a caveat at the end, and don't add explanation beyond this. The reader needs to know the audit didn't happen, not read past a full report to find that out.
