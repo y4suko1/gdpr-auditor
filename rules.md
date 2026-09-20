@@ -71,6 +71,8 @@ A plain black-on-white document with a bold label per line ("Citation:", "Severi
 - Section headings (Lawful Basis, Transparency, etc.) visually distinct from finding cards, e.g. as a heading with a thin rule beneath it in the deep teal-green.
 - Generous whitespace between findings and sections; avoid a dense, cramped page.
 
+**Page setup**: A4 page size, 25mm margins on all four sides. Apply `page-break-inside: avoid` (or the PDF-rendering equivalent) to each finding card, so a single finding's Citation/Policy excerpt/Assessment/Severity/Suggested fix never splits across two pages. Also apply it to the cover section and the summary stat-tile block, so neither breaks mid-block. If a finding card is taller than one page on its own (rare, but possible for a long policy excerpt), let it flow naturally rather than forcing a break that would cut it off entirely.
+
 This design system is fixed across all reports this tool produces so results are visually consistent between audits, not restyled ad hoc each time.
 
 Write the report in this order:
