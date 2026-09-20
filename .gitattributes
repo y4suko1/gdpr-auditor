@@ -1,0 +1,5 @@
+# reference/ is checksummed byte-for-byte (see reference/checksums.sha256).
+# Force LF on checkout regardless of the cloning machine's core.autocrlf,
+# so the checksum always matches what was actually transcribed.
+reference/**/*.md text eol=lf
+reference/**/*.sha256 text eol=lf

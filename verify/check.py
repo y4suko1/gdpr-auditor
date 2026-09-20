@@ -23,24 +23,66 @@ citation blocks in this form:
     CITATION: articles/art-13-info-collected-from-subject.md:19
     QUOTE: the period for which the personal data will be stored
 
+Before checking any citation, the script also verifies every file listed in
+reference/checksums.sha256 still matches its recorded SHA-256 hash. This
+confirms the reference text itself has not drifted since it was transcribed,
+independent of whether any individual citation is correct. A citation can
+only be trusted if the file it points at is provably the same file that was
+checksummed.
+
 The script checks, for each block:
-  1. The file exists under reference/.
-  2. The line number exists in that file.
-  3. The quoted text appears at that line, or within a small window around
+  1. reference/ passes the checksum verification above.
+  2. The file exists under reference/.
+  3. The line number exists in that file.
+  4. The quoted text appears at that line, or within a small window around
      it (provisions often wrap across lines when transcribed as prose).
 
 On any failure it prints the citation, the line actually found there, and
 exits non-zero. It never modifies reference/ or the findings file.
 """
 
+import hashlib
 import re
 import sys
 from pathlib import Path
 
 REFERENCE_ROOT = Path(__file__).resolve().parent.parent / "reference"
+CHECKSUM_FILE = REFERENCE_ROOT / "checksums.sha256"
 LINE_WINDOW = 2  # lines above/below the cited line also checked, since a
                   # quote can span a wrapped sentence rather than sit on
                   # the exact cited line alone.
+
+
+def verify_checksums():
+    if not CHECKSUM_FILE.exists():
+        return False, [f"checksum file not found: {CHECKSUM_FILE}"]
+
+    problems = []
+    checked = 0
+    for line in CHECKSUM_FILE.read_text(encoding="utf-8").splitlines():
+        line = line.strip()
+        if not line:
+            continue
+        expected_hash, _, rel_path = line.partition(" *")
+        if not rel_path:
+            expected_hash, _, rel_path = line.partition("  ")
+        rel_path = rel_path.strip()
+        target = REFERENCE_ROOT / rel_path
+        checked += 1
+        if not target.exists():
+            problems.append(f"missing file listed in checksums.sha256: reference/{rel_path}")
+            continue
+        actual_hash = hashlib.sha256(target.read_bytes()).hexdigest()
+        if actual_hash != expected_hash.strip():
+            problems.append(
+                f"checksum mismatch: reference/{rel_path}\n"
+                f"    expected: {expected_hash.strip()}\n"
+                f"    actual:   {actual_hash}"
+            )
+
+    if problems:
+        return False, problems
+    return True, [f"{checked} file(s) match their recorded checksum."]
 
 CITATION_BLOCK = re.compile(
     r"CITATION:\s*(?P<path>\S+):(?P<line>\d+)\s*\n\s*QUOTE:\s*(?P<quote>.+)",
@@ -86,6 +128,15 @@ def main():
     if not findings_path.exists():
         print(f"Findings file not found: {findings_path}")
         sys.exit(2)
+
+    print("Checking reference/ against checksums.sha256...")
+    checksums_ok, checksum_messages = verify_checksums()
+    for message in checksum_messages:
+        print(("PASS  " if checksums_ok else "FAIL  ") + message)
+    print()
+    if not checksums_ok:
+        print("reference/ does not match its recorded checksums. Citations cannot be trusted until this is resolved.")
+        sys.exit(1)
 
     text = findings_path.read_text(encoding="utf-8")
     blocks = list(CITATION_BLOCK.finditer(text))

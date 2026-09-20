@@ -1,6 +1,6 @@
 # Checking a citation yourself
 
-This folder lets you check, without taking the AI's word for it, that a citation in a report is real: that the article/paragraph it names actually exists, and that the quoted text genuinely appears where the report says it does.
+This folder lets you check, without taking the AI's word for it, that a citation in a report is real: that the article/paragraph it names actually exists, and that the quoted text genuinely appears where the report says it does. Before checking any citation, it also confirms the underlying GDPR reference text itself has not changed since it was transcribed, using the checksums in `reference/checksums.sha256`.
 
 You don't need to know how to code to use it.
 
@@ -12,7 +12,7 @@ Python installed on your computer (a one-time setup, free, from [python.org](htt
 
 1. Open `check.bat` in this folder: either **double-click it**, or **drag a findings file and drop it onto `check.bat`**.
 2. If you double-clicked without dragging a file, it'll ask you to type or paste the file path.
-3. It prints `PASS` or `FAIL` for each citation it checks. If something fails, it shows you exactly what it expected to find and what's actually there, so you can judge for yourself.
+3. It first checks every file in `reference/` against its recorded checksum, then prints `PASS` or `FAIL` for each citation it checks. If something fails, it shows you exactly what it expected to find and what's actually there, so you can judge for yourself.
 4. Press any key to close the window when you're done.
 
 ## What file to check
