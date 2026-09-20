@@ -22,7 +22,7 @@
 ## 2. Citation format
 
 Every finding, pass or fail, must include:
-- **The article citation**: e.g. "Article 13(1)(c)" or "Article 5(1)(e)." Cite the specific paragraph and point where the Regulation has one, not just the article number. This is what appears in the PDF report — never print the file:line pointer in the report itself (see below); it reads like a code path in a legal document, not a citation.
+- **The article citation**: e.g. "Article 13(1)(c)" or "Article 5(1)(e)." Cite the specific paragraph and point where the Regulation has one, not just the article number. This is what appears in the PDF report. Never print the file:line pointer in the report itself (see below): it reads like a code path in a legal document, not a citation.
 - **The file:line pointer** (tracked internally, not shown in the PDF): the exact location the citation resolves to in `reference/`, e.g. `articles/art-13-info-collected-from-subject.md:19`. Locate it by opening the cited article's file and finding the line the specific paragraph/point starts on. Keep this alongside each finding as you draft, because section 4a requires it in the companion findings file delivered with the report.
 - **The policy location**: quote the relevant sentence from the policy, or name the section/heading it falls under (e.g. "under 'How We Use Your Data'"). If the policy is silent on a required point, say so explicitly ("not addressed anywhere in the policy") rather than leaving it unclear.
 - **The assessment**: a plain statement of whether this specific point in the policy satisfies the article's requirement, and why.
@@ -100,9 +100,9 @@ CITATION: articles/art-13-info-collected-from-subject.md:19
 QUOTE: the period for which the personal data will be stored
 ```
 
-`CITATION` is the file:line pointer from section 2 (never shown in the PDF itself). `QUOTE` is the exact wording from the cited provision that the finding relies on — not the policy excerpt, the Regulation's own wording, verbatim, so it can be matched against `reference/` character-for-character.
+`CITATION` is the file:line pointer from section 2 (never shown in the PDF itself). `QUOTE` is the exact wording from the cited provision that the finding relies on: not the policy excerpt, the Regulation's own wording, verbatim, so it can be matched against `reference/` character-for-character.
 
-Include pass findings as well as fail findings — the same completeness rule as the report itself (section 5). Skip only a finding that has no single provision to point at (this shouldn't happen; every finding cites something).
+Include pass findings as well as fail findings, the same completeness rule as the report itself (section 5). Skip only a finding that has no single provision to point at (this shouldn't happen; every finding cites something).
 
 This file is plain output, not something to design or format. It exists purely so `verify/check.py` can read it directly.
 

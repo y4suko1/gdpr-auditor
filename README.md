@@ -23,24 +23,24 @@ Setup mechanics, what's in this folder, and full details are in [SETUP.md](SETUP
 Routes to the roughly 30 GDPR articles and 51 recitals that actually govern what a privacy policy has to say, not a single narrow rule. Depending on what the policy covers, a typical audit works through:
 
 - Lawful basis and consent (Art. 6, 7, 9)
-- Transparency and information duties — what the policy must tell the reader, and how clearly (Art. 12–14)
+- Transparency and information duties: what the policy must tell the reader, and how clearly (Art. 12–14)
 - Data subject rights: access, rectification, erasure, restriction, portability, objection, automated decision-making (Art. 15–22)
 - International data transfers, if the policy mentions data leaving the EU/EEA (Art. 44–49)
 - Security and breach notification, if breaches are discussed (Art. 33–34)
-- Controller/processor obligations — DPO, DPIA, security measures — only where the policy makes a claim about them (Art. 24, 25, 28, 32, 35, 37)
+- Controller/processor obligations (DPO, DPIA, security measures), only where the policy makes a claim about them (Art. 24, 25, 28, 32, 35, 37)
 - Core principles, checked throughout (Art. 5)
 
 ## What you get back
 
 A PDF report. It states which version of GDPR it checked and when the reference text was transcribed. Every finding, pass or fail, names the specific article, gets a severity (critical, moderate, minor) if it's a fail, and a concrete suggested fix. Pass findings are reported as rigorously as fails, so the result reads as an audit, not a complaint list.
 
-It doesn't estimate fines — severity tells you how serious a gap is, not what it would cost. See [SETUP.md](SETUP.md) for why.
+It doesn't estimate fines. Severity tells you how serious a gap is, not what it would cost. See [SETUP.md](SETUP.md) for why.
 
 ## How to verify the report
 
 Before you ever see it, the auditor runs a self-check on its own findings: every citation is confirmed to exist at the exact article, paragraph, and line cited, and re-checked against the actual wording to confirm it genuinely supports the finding (`rules.md` section 6).
 
-You don't have to take that on faith. Every audit produces `findings.txt` alongside the PDF — drag it straight onto `verify/check.bat` (double-click, no coding needed) and it tells you plainly whether every citation is real, showing exactly what's wrong if one isn't. Or open `reference/articles/` (or `reference/recitals/`) yourself and read the exact wording behind any finding. See `verify/README.md` for the two-minute how-to.
+You don't have to take that on faith. Every audit produces `findings.txt` alongside the PDF. Drag it straight onto `verify/check.bat` (double-click, no coding needed) and it tells you plainly whether every citation is real, showing exactly what's wrong if one isn't. Or open `reference/articles/` (or `reference/recitals/`) yourself and read the exact wording behind any finding. See `verify/README.md` for the two-minute how-to.
 
 ## What this is not
 

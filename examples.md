@@ -2,7 +2,7 @@
 
 These show the required format: a citation, the exact policy location, the assessment, a severity (for fails), and a suggested fix. Use these to calibrate tone and structure, and write your own findings in this shape rather than copying this content.
 
-The citation shown below (e.g. "Article 13(2)(a)") is what appears in the PDF report. Track the file:line pointer behind each citation as you draft (rules.md section 2) — it doesn't appear in the report itself, but it's required in the companion `findings.txt` file (rules.md section 4a). See the worked mapping at the end of this file.
+The citation shown below (e.g. "Article 13(2)(a)") is what appears in the PDF report. Track the file:line pointer behind each citation as you draft (rules.md section 2). It doesn't appear in the report itself, but it's required in the companion `findings.txt` file (rules.md section 4a). See the worked mapping at the end of this file.
 
 Note what these examples deliberately don't do: no finding names a euro fine amount, even for the Critical example. Severity communicates risk level, not a predicted penalty. See `rules.md` section 3.
 
@@ -88,4 +88,4 @@ CITATION: articles/art-13-info-collected-from-subject.md:19
 QUOTE: the period for which the personal data will be stored
 ```
 
-Every finding in the report gets one block like this in `findings.txt`, in the same order they appear in the report — including passes. The `QUOTE` is the Regulation's own wording at that line, not the policy excerpt being assessed.
+Every finding in the report gets one block like this in `findings.txt`, in the same order they appear in the report, including passes. The `QUOTE` is the Regulation's own wording at that line, not the policy excerpt being assessed.
