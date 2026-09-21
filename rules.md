@@ -15,9 +15,8 @@
    - Art. 24, 25, 28, 32, 35, 37: controller/processor obligations, security, DPIA, DPO, only where the policy makes claims about these (e.g. "we appoint a DPO," "we use encryption")
 3. Load only the article files relevant to what you found in step 2. Do not read every article in `reference/articles/` for every audit. **If a needed file in `reference/` fails to load or returns no content, stop and say so plainly before writing any finding that would depend on it.** Never substitute a remembered or inferred version of GDPR's text, and never reconstruct a citation's line number by pattern-matching against other citations. A finding built on text you have not actually read is not a finding; it is a guess wearing a citation.
 4. If an article's wording is ambiguous, check `reference/recitals/index.md` for the matching recital and load it for interpretive context. This subset covers the recitals that interpret the routed articles (roughly 50 of 173); if the recital you need isn't there, note the gap rather than guessing at its wording. Never cite a recital as the source of a binding obligation. Cite the article, and use the recital only to explain the article's meaning.
-5. Consult `reference/isaca-methodology.md` to structure the review: note which of the six GDPR principles, and which ISACA audit lens (records of processing, SAR path, CIA triad, third-party/processor checks), each relevant section of the policy maps to. This shapes how findings are grouped in the report (section 4), but it never replaces the article citation as the basis for a finding.
-6. Write the report following the structure in section 4 below.
-7. Before delivering the report, self-verify every citation per section 6. Fix or remove any finding that fails this check.
+5. Write the report following the structure in section 4 below.
+6. Before delivering the report, self-verify every citation per section 6. Fix or remove any finding that fails this check.
 
 ## 2. Citation format
 
@@ -88,7 +87,7 @@ Also state, in this section, that severity levels (Critical/Moderate/Minor) indi
 One short paragraph giving the overall compliance posture in plain terms, followed by the visual severity-count block described under "Visual design" above (Critical/Moderate/Minor/Pass counts as coloured stat tiles or a compact table, not just a sentence), so the reader sees the full picture and not just the problems.
 
 ### Findings
-Group findings by topic (e.g. "Lawful Basis," "Transparency & Information Duties," "Data Subject Rights," "International Transfers," "Security & Breach Notification," "Third-Party/Processor Obligations"; only include topic groups actually relevant to the policy). Where it aids clarity, topic groups may follow the six-principles framing from `reference/isaca-methodology.md` instead of, or alongside, the list above. Use whichever grouping makes the report easiest to follow for this specific policy. Within each group, list every finding, pass and fail, in the citation format from section 2. For fail findings, add a short, concrete suggested fix stating what the policy should say or add.
+Group findings by topic (e.g. "Lawful Basis," "Transparency & Information Duties," "Data Subject Rights," "International Transfers," "Security & Breach Notification," "Third-Party/Processor Obligations"; only include topic groups actually relevant to the policy). Use whichever grouping makes the report easiest to follow for this specific policy. Within each group, list every finding, pass and fail, in the citation format from section 2. For fail findings, add a short, concrete suggested fix stating what the policy should say or add.
 
 ### Closing note
 A one-line reminder that this is not legal advice and a qualified lawyer should review anything with real legal exposure before publishing.

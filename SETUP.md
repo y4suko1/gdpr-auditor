@@ -8,8 +8,6 @@ Most compliance-checker tools audit one narrow slice of a law: a single article,
 
 The tradeoff: a tool scoped to one article can dig into that article's edge cases further than a general audit will on any single point. This one optimizes for coverage across the whole document instead.
 
-The review also borrows structure from ISACA's audit methodology (the global IT audit body), see `reference/isaca-methodology.md`: records-of-processing thinking, the subject-access-request path, the CIA triad for security claims, and third-party/processor checks, layered on top of the article citations. GDPR articles remain the only binding standard any finding is judged against; ISACA's methodology just shapes how the review is organised.
-
 ## Full setup, step by step
 
 A Claude Project can't have a folder dropped into it directly, and Google Drive/OneDrive aren't supported as Project knowledge sources. A GitHub repository is. The `gdpr-auditor` repo is already the right size to connect as-is: `reference/` holds only the routed subset (~30 articles, ~51 recitals), not the full 99-article/173-recital Regulation.
@@ -31,7 +29,6 @@ The GitHub connection doesn't auto-update. If this repo changes after you've con
   - `index.md`: routing index, version and transcription date, checksum note
   - `articles/`: verbatim text of the routed articles only
   - `recitals/`: verbatim text of the ~50 recitals that interpret the routed articles
-  - `isaca-methodology.md`: the ISACA layer described above
   - `checksums.sha256`: SHA-256 of every article/recital file, so anyone can confirm the text hasn't drifted since transcription (`sha256sum -c checksums.sha256` from inside `reference/`)
 - `verify/`: a standalone script for independently checking a report's citations against `reference/`, entirely separate from normal use (see main README's "How to verify the report"). To run it, download both `verify/` and `reference/` together, kept in the same relative position as in this repo (`check.py` looks for `reference/` one level up from itself), for example by downloading the whole repository as a ZIP from GitHub rather than the `verify/` folder alone.
   - `regenerate_checksums.py`: maintainer-only. Rebuilds `checksums.sha256` from the current contents of `reference/`. Run this after any deliberate change to a file in `reference/`, then update the date in `reference/index.md`'s "Integrity check" line.
