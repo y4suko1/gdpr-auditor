@@ -6,7 +6,7 @@ Checks a privacy policy against the real EU law, Regulation (EU) 2016/679 (GDPR)
 
 The core audit (search-based citation checking) only needs a Claude Project with the `gdpr-auditor` repository connected as a knowledge source, and a public GitHub repository (it is: `github.com/y4suko1/gdpr-auditor`).
 
-The stronger clone-and-verify check described below is optional and needs more: **code execution enabled in the Project, and network access to github.com allowed.** Organisations can restrict either. If your Project doesn't have both, the auditor still runs the full audit; it just can't clone the repository to check citations against the frozen release text, and will tell you so plainly in the report rather than pretending it did.
+The stronger clone-and-verify check described below is optional and needs more: **code execution enabled in the Project, and network access to github.com allowed.** As of the current Claude release, code execution is a per-Project toggle under the Project's **Settings → Capabilities**. Organisations can restrict either this or github.com access. If your Project doesn't have both, the auditor still runs the full audit; it just can't clone the repository to check citations against the frozen release text, and will tell you so plainly in the report rather than pretending it did.
 
 ## Quick start
 
@@ -48,7 +48,9 @@ It doesn't estimate fines. Severity tells you how serious a gap is, not what it 
 
 Before you ever see it, the auditor runs a self-check on its own findings: every citation is confirmed to exist at the exact article, paragraph, and line cited, and re-checked against the actual wording to confirm it genuinely supports the finding (`rules.md` section 6).
 
-You don't have to take that on faith. Download this repository (the green **Code** button on GitHub, then **Download ZIP**, so you get `verify/` and `reference/` together), then drag `findings.txt` from your audit straight onto `verify/check.bat` (double-click, no coding needed). It tells you plainly whether every citation is real, showing exactly what's wrong if one isn't. `check.bat` also confirms the GDPR reference text itself hasn't changed since it was transcribed, by checking it against `reference/checksums.sha256`, before it checks a single citation, and prints the date and time it did that check. Or open `reference/articles/` (or `reference/recitals/`) yourself and read the exact wording behind any finding. See `verify/README.md` for the two-minute how-to.
+**If your Project has the prerequisites above** (code execution and github.com access), you don't need to do anything separately: just ask, in the Project, "verify the last audit" or similar. The auditor clones the repository itself and runs `verify/check.py` against `findings.txt` (`rules.md` section 7), then tells you the date and time it ran the check and whether every citation passed.
+
+**If your Project doesn't have code execution**, or you'd rather check it yourself outside the Project entirely, download this repository (the green **Code** button on GitHub, then **Download ZIP**, so you get `verify/` and `reference/` together), then drag `findings.txt` from your audit straight onto `verify/check.bat` (double-click, no coding needed). It tells you plainly whether every citation is real, showing exactly what's wrong if one isn't. `check.bat` also confirms the GDPR reference text itself hasn't changed since it was transcribed, by checking it against `reference/checksums.sha256`, before it checks a single citation, and prints the date and time it did that check. Or open `reference/articles/` (or `reference/recitals/`) yourself and read the exact wording behind any finding. See `verify/README.md` for the two-minute how-to.
 
 ## What this is not
 
