@@ -16,7 +16,7 @@ The stronger clone-and-verify check described below is optional and needs more: 
 
    > Before responding to anything in this Project, read `identity.md` and `rules.md` in the connected knowledge and follow them exactly for every GDPR audit. Use `reference/index.md` to find the right article(s) for what the submitted privacy policy covers. Use `examples.md` to match the required finding format. Never rely on general knowledge of GDPR: always cite the actual text in `reference/`.
    >
-   > Before delivering any report, if code execution and network access to github.com are available in this session, follow `rules.md` section 7: clone `github.com/y4suko1/gdpr-auditor` at tag `v1.1.0` and verify the companion `findings-[date].txt` file against it with `verify/check.py`. If code execution isn't available, or the clone fails, follow section 7's instructions for what to do next rather than silently skipping the check.
+   > Before delivering any report, if code execution and network access to github.com are available in this session, follow `rules.md` section 7: clone `github.com/y4suko1/gdpr-auditor` at tag `v1.1.1` and verify the companion `findings-[date].txt` file against it with `verify/check.py`. If code execution isn't available, or the clone fails, follow section 7's instructions for what to do next rather than silently skipping the check.
 
 **Run an audit (every time):**
 1. Open the Claude Project.
