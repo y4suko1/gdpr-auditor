@@ -24,7 +24,7 @@ The GitHub connection doesn't auto-update. If this repo changes after you've con
 
 - `identity.md`: the auditor's role, scope, and "not legal advice" framing
 - `rules.md`: the exact audit procedure, routing logic, citation format, severity scale, report structure
-- `examples.md`: five worked findings showing the required format, plus a worked mapping to the companion `findings.txt` file every audit produces
+- `examples.md`: five worked findings showing the required format, plus a worked mapping to the companion `findings-[date].txt` file every audit produces
 - `reference/`: verbatim GDPR text, and what actually gets connected to the Claude Project
   - `index.md`: routing index, version and transcription date, checksum note
   - `articles/`: verbatim text of the routed articles only

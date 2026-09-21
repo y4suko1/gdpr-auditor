@@ -99,7 +99,7 @@ A one-line reminder that this is not legal advice and a qualified lawyer should 
 
 ## 4a. Companion findings file
 
-Alongside the PDF, deliver a second, plain-text file: `findings.txt`. This is what lets a reader independently verify a citation with `verify/check.bat`, without retyping anything from the PDF by hand.
+Alongside the PDF, deliver a second, plain-text file named `findings-[YYYY-MM-DD].txt`, using the date the audit ran. This is what lets a reader independently verify a citation with `verify/check.bat`, without retyping anything from the PDF by hand.
 
 List every finding from the report, in the same order, one block per finding:
 
@@ -130,7 +130,7 @@ For every finding, confirm two things:
 
 Do this as a distinct pass after drafting the full report and before delivering it, not as an assumption made while writing each finding the first time. Treat it as a second, more skeptical reading of your own work, not a formality.
 
-**If `reference/` cannot be read at all during this pass, the report cannot be delivered.** Do not hand over a PDF, a findings list, or a `findings.txt` file built on citations you could not check. A report the auditor could not check itself is not a lesser version of the report; it is not a report.
+**If `reference/` cannot be read at all during this pass, the report cannot be delivered.** Do not hand over a PDF, a findings list, or a `findings-[YYYY-MM-DD].txt` file built on citations you could not check. A report the auditor could not check itself is not a lesser version of the report; it is not a report.
 
 Say this instead, plainly, as the entire reply:
 
@@ -143,8 +143,8 @@ Don't soften this into a delivered report with a caveat at the end, and don't ad
 If this session has code execution enabled and network access to github.com, run a stronger version of the section 6 self-verification: clone the connected `gdpr-auditor` repository yourself and check citations against those cloned files and `verify/check.py`, instead of relying on search results alone.
 
 1. Before delivering the report, clone the repository (URL and ref as given in this Project's setup instructions) into your working directory.
-2. Take every `file:line` pointer in `findings.txt` from the cloned files, not from search results.
-3. Run `verify/check.py` against `findings.txt`. Fix or remove any finding that fails.
+2. Take every `file:line` pointer in `findings-[YYYY-MM-DD].txt` from the cloned files, not from search results.
+3. Run `verify/check.py` against `findings-[YYYY-MM-DD].txt`. Fix or remove any finding that fails.
 4. State, in the report, the date and time `check.py` reported for its check. This is a real, compute-verified result from this session, distinct from the build-time checksum date in section 4, which is not.
 
 **If the clone or the script fails**, do not silently fall back and do not silently refuse. Stop and give the reader an explicit choice:

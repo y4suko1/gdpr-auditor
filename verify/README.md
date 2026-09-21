@@ -19,9 +19,9 @@ You also need this `verify/` folder and the `reference/` folder next to it, both
 
 ## What file to check
 
-Every audit produces two files: the PDF report you read, and `findings.txt` sitting alongside it, a plain-text list of every citation in the report, already in the format this checker needs. Drag `findings.txt` straight onto `check.bat`. No typing anything out yourself.
+Every audit produces two files: the PDF report you read, and a `findings-[date].txt` file sitting alongside it, a plain-text list of every citation in the report, already in the format this checker needs. Drag that file straight onto `check.bat`. No typing anything out yourself.
 
-`findings.txt` looks like this, one block per finding:
+`findings-[date].txt` looks like this, one block per finding:
 
 ```
 CITATION: articles/art-13-info-collected-from-subject.md:19
