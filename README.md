@@ -2,6 +2,12 @@
 
 Checks a privacy policy against the real EU law, Regulation (EU) 2016/679 (GDPR), and tells you what's good and what's missing. Every point in the report, pass or fail, cites a specific article. Nothing in it is a vibe check.
 
+## Prerequisites
+
+The core audit (search-based citation checking) only needs a Claude Project with the `gdpr-auditor` repository connected as a knowledge source, and a public GitHub repository (it is: `github.com/y4suko1/gdpr-auditor`).
+
+The stronger clone-and-verify check described below is optional and needs more: **code execution enabled in the Project, and network access to github.com allowed.** Organisations can restrict either. If your Project doesn't have both, the auditor still runs the full audit; it just can't clone the repository to check citations against the frozen release text, and will tell you so plainly in the report rather than pretending it did.
+
 ## Quick start
 
 **Set up once:**
@@ -9,6 +15,8 @@ Checks a privacy policy against the real EU law, Regulation (EU) 2016/679 (GDPR)
 2. Paste this into the Project's **Set project instructions** field:
 
    > Before responding to anything in this Project, read `identity.md` and `rules.md` in the connected knowledge and follow them exactly for every GDPR audit. Use `reference/index.md` to find the right article(s) for what the submitted privacy policy covers. Use `examples.md` to match the required finding format. Never rely on general knowledge of GDPR: always cite the actual text in `reference/`.
+   >
+   > Before delivering any report, if code execution and network access to github.com are available in this session, follow `rules.md` section 7: clone `github.com/y4suko1/gdpr-auditor` at tag `v1.0.0` and verify `findings.txt` against it with `verify/check.py`. If code execution isn't available, or the clone fails, follow section 7's instructions for what to do next rather than silently skipping the check.
 
 **Run an audit (every time):**
 1. Open the Claude Project.

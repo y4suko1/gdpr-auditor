@@ -133,3 +133,19 @@ Say this instead, plainly, as the entire reply:
 > I couldn't complete this audit because the GDPR reference text wasn't available to me in this session. I have no way to confirm the citations are accurate. Rather than guess, I've stopped the audit. Please check the Project's Knowledge sync for gdpr-auditor and try again.
 
 Don't soften this into a delivered report with a caveat at the end, and don't add explanation beyond this. The reader needs to know the audit didn't happen, not read past a full report to find that out.
+
+## 7. Clone-and-verify (when code execution is available)
+
+If this session has code execution enabled and network access to github.com, run a stronger version of the section 6 self-verification: clone the connected `gdpr-auditor` repository yourself and check citations against those cloned files and `verify/check.py`, instead of relying on search results alone.
+
+1. Before delivering the report, clone the repository (URL and ref as given in this Project's setup instructions) into your working directory.
+2. Take every `file:line` pointer in `findings.txt` from the cloned files, not from search results.
+3. Run `verify/check.py` against `findings.txt`. Fix or remove any finding that fails.
+4. State, in the report, the date and time `check.py` reported for its check. This is a real, compute-verified result from this session, distinct from the build-time checksum date in section 4, which is not.
+
+**If the clone or the script fails**, do not silently fall back and do not silently refuse. Stop and give the reader an explicit choice:
+
+- **Proceed with what's possible**: deliver the report using section 6's search-based self-verification only, and state plainly, as the first paragraph of the report, that citations are unverified against the cloned source and why the clone failed.
+- **Retry**: attempt the clone again before producing anything.
+
+Do not choose between these on the reader's behalf. Ask, and wait for their answer, before delivering a report built on unverified citations.
