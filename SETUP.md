@@ -20,6 +20,14 @@ The GitHub connection doesn't auto-update. If this repo changes after you've con
 
 **Clone-and-verify, and why it's pinned to a tag.** If the Project has code execution and github.com access enabled, `rules.md` section 7 has the auditor clone the repository itself before delivering a report, so citations are checked against the actual cloned files with `verify/check.py`, not just search results. That clone is pinned to a release tag (`v1.1.1`), not `main`. `main` moves every time this repo is edited, including mid-edit; a tag is frozen, so every audit run against it gets the same reference text and rules until a new tag is deliberately cut. When you make a change worth shipping, cut a new tag and update the version number in the README's instructions block and here to match, don't leave the instructions pointing at a stale tag or, worse, at `main`.
 
+## Verifying a report yourself, mechanically
+
+The main README explains the two kinds of check a finding needs: is the citation real, and does it actually support the finding. This section covers the first one, the mechanical one, and how to run it yourself.
+
+**If your Project has code execution and github.com access enabled** (see Prerequisites in the README), you don't need to do anything separately: just ask, in the Project, "verify the last audit" or similar. The auditor clones the repository itself and runs `verify/check.py` against the companion `findings-[date].txt` file (`rules.md` section 7), then tells you the date and time it ran the check and whether every citation passed.
+
+**If your Project doesn't have code execution**, or you'd rather check it yourself outside the Project entirely, download this repository (the green **Code** button on GitHub, then **Download ZIP**, so you get `verify/` and `reference/` together), then drag the `findings-[date].txt` file from your audit straight onto `verify/check.bat` (double-click, no coding needed). It tells you plainly whether every citation is real, showing exactly what's wrong if one isn't. `check.bat` also confirms the GDPR reference text itself hasn't changed since it was transcribed, by checking it against `reference/checksums.sha256`, before it checks a single citation, and prints the date and time it did that check. Or open `reference/articles/` (or `reference/recitals/`) yourself and read the exact wording behind any finding. See `verify/README.md` for the two-minute how-to.
+
 ## What's inside this folder
 
 - `identity.md`: the auditor's role, scope, and "not legal advice" framing

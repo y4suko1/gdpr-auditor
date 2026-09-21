@@ -46,11 +46,15 @@ It doesn't estimate fines. Severity tells you how serious a gap is, not what it 
 
 ## How to verify the report
 
-Before you ever see it, the auditor runs a self-check on its own findings: every citation is confirmed to exist at the exact article, paragraph, and line cited, and re-checked against the actual wording to confirm it genuinely supports the finding (`rules.md` section 6).
+Every finding in this report rests on two separate questions, and it helps to know which one has been checked mechanically and which one still needs a reader's judgement.
 
-**If your Project has the prerequisites above** (code execution and github.com access), you don't need to do anything separately: just ask, in the Project, "verify the last audit" or similar. The auditor clones the repository itself and runs `verify/check.py` against the companion `findings-[date].txt` file (`rules.md` section 7), then tells you the date and time it ran the check and whether every citation passed.
+**Is the citation real?** Does "Article 13(2)(a)" actually exist, and does it say the words the finding quotes? Before you ever see the report, the tool checks this itself: every citation is confirmed against the exact article, paragraph, and line it points to (`rules.md` section 6). This is a fact check. It catches a made-up article number or a quote that doesn't actually appear where it's claimed to.
 
-**If your Project doesn't have code execution**, or you'd rather check it yourself outside the Project entirely, download this repository (the green **Code** button on GitHub, then **Download ZIP**, so you get `verify/` and `reference/` together), then drag the `findings-[date].txt` file from your audit straight onto `verify/check.bat` (double-click, no coding needed). It tells you plainly whether every citation is real, showing exactly what's wrong if one isn't. `check.bat` also confirms the GDPR reference text itself hasn't changed since it was transcribed, by checking it against `reference/checksums.sha256`, before it checks a single citation, and prints the date and time it did that check. Or open `reference/articles/` (or `reference/recitals/`) yourself and read the exact wording behind any finding. See `verify/README.md` for the two-minute how-to.
+**Does the citation actually support the finding?** A real, correctly-quoted article can still be attached to the wrong conclusion: a citation that's accurate but pointed at the wrong argument. Checking this means reading the provision and judging whether it genuinely means what the finding says it means. The tool does this too, as a second, more sceptical read-through before delivering the report. But it's a judgement call, not something that can be confirmed by matching text. If you're relying on a finding for something with real exposure, read the cited article yourself in `reference/articles/` rather than trusting the citation on sight.
+
+One line, plainly: the tool can prove a citation is real. It cannot prove, in a way you can independently confirm without reading the law yourself, that the citation's conclusion is the right one. Both checks matter. Only the first is mechanical.
+
+If you want the technical detail on how the mechanical check runs, and how to re-run it yourself outside the chat, see [SETUP.md](SETUP.md).
 
 ## What this is not
 
